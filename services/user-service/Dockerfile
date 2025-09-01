@@ -11,4 +11,5 @@ RUN chmod +x /app/wait-for-it.sh
 
 EXPOSE 4000
 
-CMD ["/app/wait-for-it.sh", "db", "npm", "start"]
+CMD ["npm", "run", "dev"]
+#CMD ["/app/wait-for-it.sh", "db", "npm", "start"]

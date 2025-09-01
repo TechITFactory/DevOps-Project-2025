@@ -1,14 +1,13 @@
 FROM node:18-alpine
-
 WORKDIR /app
 
 COPY package*.json ./
 RUN npm install
 
+# Copy app source + wait-for-db.sh explicitly
 COPY . .
+COPY wait-for-db.sh ./wait-for-db.sh
 
-RUN chmod +x /app/wait-for-it.sh
+RUN chmod +x ./wait-for-db.sh
 
-EXPOSE 4002
-
-CMD ["/app/wait-for-it.sh", "db", "npm", "start"]
+CMD ["./wait-for-db.sh", "db", "node", "src/server.js"]

@@ -1,22 +1,18 @@
 const { Sequelize, DataTypes } = require("sequelize");
-const config = require("../config");
 
 const sequelize = new Sequelize(
-  config.DB_NAME,
-  config.DB_USER,
-  config.DB_PASS,
+  process.env.DB_NAME || "orders_db",
+  process.env.DB_USER || "postgres",
+  process.env.DB_PASS || "postgres",
   {
-    host: config.DB_HOST,
-    dialect: "postgres"
+    host: process.env.DB_HOST || "db",
+    dialect: "postgres",
   }
 );
 
 const Order = sequelize.define("Order", {
   userId: { type: DataTypes.INTEGER, allowNull: false },
-  productId: { type: DataTypes.INTEGER, allowNull: false },
-  quantity: { type: DataTypes.INTEGER, allowNull: false },
-  totalPrice: { type: DataTypes.FLOAT, allowNull: false },
-  status: { type: DataTypes.STRING, defaultValue: "PENDING" }
+  items: { type: DataTypes.TEXT, allowNull: false }, // store as JSON string
 });
 
 module.exports = { sequelize, Order };
