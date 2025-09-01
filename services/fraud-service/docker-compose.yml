@@ -1,0 +1,6 @@
+services:
+  fraud-service:
+    build: .
+    ports:
+      - "4004:4004"
+    restart: always
