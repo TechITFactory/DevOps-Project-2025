@@ -1,0 +1,9 @@
+services:
+  recommendation-service:
+    build: .
+    ports:
+      - "4003:4003"
+    environment:
+      - USER_SERVICE_URL=http://host.docker.internal:4000
+      - PRODUCT_SERVICE_URL=http://host.docker.internal:4001
+    restart: always
