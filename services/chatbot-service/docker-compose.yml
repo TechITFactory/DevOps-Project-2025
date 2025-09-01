@@ -1,0 +1,8 @@
+services:
+  chatbot-service:
+    build: .
+    ports:
+      - "4005:4005"
+    environment:
+      - MODEL_NAME=distilbert-base-uncased-distilled-squad
+    restart: always
