@@ -1,0 +1,24 @@
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+
+# Go
+bin/
+*.exe
+*.out
+
+# Logs
+logs/
+*.log
+
+# IDE & system
+.vscode/
+.idea/
+.DS_Store
