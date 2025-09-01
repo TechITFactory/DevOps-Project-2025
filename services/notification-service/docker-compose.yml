@@ -1,0 +1,14 @@
+services:
+  notification-service:
+    build: .
+    ports:
+      - "4006:4006"
+    environment:
+      - SMTP_HOST=smtp.example.com
+      - SMTP_USER=user@example.com
+      - SMTP_PASS=password
+      - TWILIO_SID=dummy
+      - TWILIO_AUTH=dummy
+      - TWILIO_PHONE=+1234567890
+      - FCM_KEY=dummy
+    restart: always
